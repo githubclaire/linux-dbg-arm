@@ -5,15 +5,18 @@ FROM arm64v8/ubuntu
 ENV TZ Asia/Shanghai
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update \
-        && apt-get install -y --no-install-recommends \
-        make tzdata \
-        zlib1g-dev \
-        libudev1 libudev-dev \
-        libpci-dev \
-        libpciaccess-dev \
-        build-essential \
-        && apt-get autoremove -y \
-        && apt-get clean \
-        && rm -rf /var/lib/apt/lists/*rm /var/log/alternatives.log /var/log/apt/* \
-        && rm /var/log/* -r
+#RUN apt-get update \
+#        && apt-get install -y --no-install-recommends \
+#        make tzdata \
+#        zlib1g-dev \
+#        libudev1 libudev-dev \
+#        libpci-dev \
+#        libpciaccess-dev \
+#        build-essential \
+#        && apt-get autoremove -y \
+#        && apt-get clean \
+#        && rm -rf /var/lib/apt/lists/*rm /var/log/alternatives.log /var/log/apt/* \
+#        && rm /var/log/* -r
+RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
+	&& localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+ENV LANG en_US.utf8
