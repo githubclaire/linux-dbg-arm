@@ -4,7 +4,7 @@ FROM arm64v8/ubuntu
 # Setting the DEBIAN_FRONTEND environment variable suppresses the prompt that lets you select the correct timezone from a menu.
 ENV TZ Asia/Shanghai
 ENV DEBIAN_FRONTEND=noninteractive
-RUN sed -i 's#http://archive.ubuntu.com/#http://mirrors.tuna.tsinghua.edu.cn/#' /etc/apt/sources.list;
+
 RUN apt-get update \
         && apt-get install -y --no-install-recommends \
         make tzdata \
