@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu
+FROM arm64v8/photon
 
 # Pakage `tzdata` should be installed to make the enviroment vairable `TZ` work
 # Setting the DEBIAN_FRONTEND environment variable suppresses the prompt that lets you select the correct timezone from a menu.
