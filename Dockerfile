@@ -1,11 +1,18 @@
-FROM arm64v8/photon
+FROM arm64v8/ubuntu
 
 # Pakage `tzdata` should be installed to make the enviroment vairable `TZ` work
 # Setting the DEBIAN_FRONTEND environment variable suppresses the prompt that lets you select the correct timezone from a menu.
 ENV TZ Asia/Shanghai
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update \
+USER root
+RUN sed -i "s/security.ubuntu.com/mirrors.aliyun.com/" /etc/apt/sources.list && \
+    sed -i "s/archive.ubuntu.com/mirrors.aliyun.com/" /etc/apt/sources.list && \
+    sed -i "s/security-cdn.ubuntu.com/mirrors.aliyun.com/" /etc/apt/sources.list
+RUN  apt-get clean
+
+
+RUN apt-get update\ 
         && apt-get install -y --no-install-recommends \
                 make tzdata \
                 zlib1g-dev \
