@@ -1,6 +1,6 @@
 # linux-dbg
 
-[![Docker Hub](https://github.com/githubhy/linux-dbg/actions/workflows/ci-docker.yml/badge.svg)](https://hub.docker.com/r/dockerhy/linux-dbg)
+[![Docker Hub](https://github.com/githubclaire/linux-dbg-arm/actions/workflows/ci-docker.yml/badge.svg)](https://hub.docker.com/r/dockerhy/linux-dbg-arm)
 
 ## Build up the docker image locally
 
